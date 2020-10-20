@@ -244,25 +244,24 @@ Dans le code suivant on indique au plugin qu'il doit exécuter sa tache **report
 ### 3.3 Analyse de code avec Sonar
 Nous allons mettre en place à chaque éxécution de notre pipeline une analyse sonar.
 
-Le serveur sonar à utiliser se trouve à l'adresse suivante : [ISIMA Sonar](http://23.97.188.2:9000)
-
-Le compte permettant d'acceder à l'application est `isima`, le mot de passe `ISIMAF2`.
+Le serveur sonar à utiliser se trouve à l'adresse suivante : [Sonar Cloud](https://sonarcloud.io)
+Merci de creer un compte et de rejoindre le groupe `isimaZZ2-2020`
 
 * à la suite de la phase de test ajoutez dans votre job une analyse Sonar.
 * Pour exécuter une analyse sonar il suffit de lancer la commande : 
 
 ```
-mvn sonar:sonar -Dsonar.host.url=http://23.97.188.2:9000 -Dsonar.login=TOKEN
+mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=TOKEN
 ```
 
-* Le token pour le user `isima` est `7283ea5221e1278c2bbbe8ccd8e12585d9101e33`.
+* Généré un token pour votre user est utilisez votre token.
 * Une fois la première analyse lancée, rendez vous sur l'application pour constater quels sont les anomalies détectées et les indicateurs de qualimétrie de votre code.
 * Corrigez votre code en conséquence pour obtenir la meilleur note possible.
 * Il est possible de spécifier directement dans le pom.xml l'adresse du serveur cible
     * pour ce faire on ajoutera dans la balise properties une entrée tel que : 
     
     ```xml
-    <sonar.host.url>http://23.97.188.2:9000</sonar.host.url>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     ```
     * on peux alors appeler directement `mvn sonar:sonar -Dsonar.login=TOKEN` l'URL du serveur est prise dans les properties de votre projet maven
     
